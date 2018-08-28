@@ -11,4 +11,12 @@ class User extends CI_Controller {
 		$this->load->view('user/papeletas/index');
 		$this->load->view('user/footer');
 	}
+
+	public function papeleta()
+	{
+		$this->load->view('user/header');
+		$this->load->view('user/nav');
+		$this->load->view('user/papeletas/create');
+		$this->load->view('user/footer');
+	}
 }

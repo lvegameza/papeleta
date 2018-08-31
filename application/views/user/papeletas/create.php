@@ -5,7 +5,7 @@
     <div class="col-md-5">
       <div class="card">
         <div class="card-header">
-          Crear Papeleta <a href="<?= base_url()?>user/" class="btn btn-default pull-right">Lista</a>
+          <span>Crear Papeleta</span> <a href="<?= base_url()?>user/" class="btn btn-default float-right">Lista</a>
         </div>
         <div class="card-body">
 
@@ -19,9 +19,9 @@
               <option value="<?= $key->idPapeletas ?>" name="<?= $key->nombrePapeleta ?>"><?= $key->nombrePapeleta ?></option>
             <?php endforeach ?>
           </select>
-          <small id="passwordHelpInline" class="text-muted">
+          <!-- <small id="passwordHelpInline" class="text-muted">
             Selecciona una papeleta
-          </small>
+          </small> -->
 
         </div>
       </div>
@@ -30,17 +30,17 @@
     <div class="col-md-7" id="divSobretiempo" style="display:none;">
       <div class="card">
         <div class="card-header">
-          SOBRETIEMPO
+          <span>Sobretiempo</span>
         </div>
         <div class="card-body">
           <div class="row">
             <div class="col-md-6">
               <label>Fecha/Hora Inicio</label>
-              <input type="datetime" name="finicio" class="form-control form-control-sm">
+              <input type="datetime-local" name="finicio" class="form-control form-control-sm">
             </div>
             <div class="col-md-6">
               <label>Fecha/hora Termino</label>
-              <input type="datetime" name="finicio" class="form-control form-control-sm">
+              <input type="datetime-local" name="finicio" class="form-control form-control-sm">
             </div>
           </div>
           <br>
@@ -50,23 +50,54 @@
             </div>
           </div>
         </div>
-        <div class="card-footer text-muted">
-          COMPENSACION
+        <div class="card-footer">
+          <span>Compensación</span>
         </div>
         <div class="card-body">
           <div class="row">
             <div class="col-md-6">
               <label>Fecha/Hora Inicio</label>
-              <input type="datetime" name="finicio" class="form-control form-control-sm">
+              <input type="datetime-local" name="finicio" class="form-control form-control-sm">
             </div>
             <div class="col-md-6">
               <label>Fecha/hora Termino</label>
-              <input type="datetime" name="finicio" class="form-control form-control-sm">
+              <input type="datetime-local" name="finicio" class="form-control form-control-sm">
             </div>
           </div>
           <hr>
-          <button class="btn btn-succes btn-sm pull-right">Registrar</button>
+          <button class="btn btn-outline-success btn-sm float-right"><i class="far fa-save"></i> Registrar</button>
         </div>
+      </div>
+    </div>
+
+    <div class="col-md-7" id="divAtenMedica" style="display:none;">
+      <div class="card">
+        <div class="card-header">
+          <span>Atención Medica</span>
+        </div>
+        <form action="<?= base_url()?>" method="POST">
+          <div class="card-body">
+            <div class="row">
+
+              <div class="col-md-6">
+                <label>Fecha y Hora</label>
+                <input type="datetime-local" name="finicio" class="form-control form-control-sm">
+                <small class="text-muted">
+                    <strong>Ingrese la fecha y hora de la cita médica</strong>
+                </small>
+              </div>              
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-md-12">
+                <textarea name="descripcion" class="form-control" cols="30" rows="10" placeholder="Describa el motivo de la cita medica"></textarea>
+                <hr>
+                <input type="hidden" name="id" id="id">
+                <button class="btn btn-outline-success btn-sm float-right"><i class="far fa-save"></i> Registrar</button>
+              </div>             
+            </div>
+          </div>
+        </form>
       </div>
     </div>
 
@@ -78,22 +109,23 @@
         <form action="<?= base_url()?>" method="POST">
           <div class="card-body">
             <div class="row">
+
               <div class="col-md-6">
-                <label>Fecha/Hora Inicio</label>
-                <input type="datetime" name="finicio" class="form-control form-control-sm">
+                <label>Fecha Inicio</label>
+                <input type="date" name="finicio" class="form-control form-control-sm">
               </div>
               <div class="col-md-6">
-                <label>Fecha/hora Termino</label>
-                <input type="datetime" name="finicio" class="form-control form-control-sm">
+                <label>Fecha Termino</label>
+                <input type="date" name="finicio" class="form-control form-control-sm">
               </div>
             </div>
             <br>
             <div class="row">
               <div class="col-md-12">
-                <textarea name="descripcion" class="form-control" cols="30" rows="10" placeholder="Ingrese el motivo"></textarea>
+                <textarea name="descripcion" id="descripcion" class="form-control" cols="30" rows="10"></textarea>
                 <hr>
                 <input type="hidden" name="id" id="id">
-                <button class="btn btn-succes btn-sm">Registrar</button>
+                <button class="btn btn-outline-success btn-sm float-right"><i class="far fa-save"></i> Registrar</button>
               </div>             
             </div>
           </div>
